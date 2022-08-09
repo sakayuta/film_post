@@ -1,2 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+body {
+  padding-top: 74px;
+  padding-bottom: 72px;
+  background: linear-gradient(-135deg, #485449, #8BA38D) fixed;
+}
+
+header {
+  background: linear-gradient(-135deg, #DB8F59, #5C4C41) fixed;
+}
+
+footer {
+  background: linear-gradient(-135deg, #DB8F59, #5C4C41) fixed;
+}
