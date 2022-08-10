@@ -1,11 +1,11 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2 class="text-center">新規会員登録</h2>
     </div>
   </div>
   <div class="row-justify-content-center">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' do |f| %>
       <%= render "user/shared/error_messages", resource: resource %>
        <table class ="table table-borderless">
@@ -13,40 +13,40 @@
            <td><%= f.label :"氏名" %></td>
            <td><%= f.text_field :name, autofocus: true, autocomplete: "氏名", class: "form-control" %></td>
          </tr>
-         
+
          <tr>
            <td><%= f.label :"フリガナ" %></td>
-           <td><%= f.text_field :name_kana, autofocus: true, autocomplete: "フリガナ", class: "form-control" %></td>
+           <td><%= f.text_field :name_kana, autocomplete: "フリガナ", class: "form-control" %></td>
          </tr>
-         
+
          <tr>
            <td><%= f.label :"メールアドレス" %></td>
-           <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
+           <td><%= f.email_field :email, autocomplete: "email", class: "form-control" %></td>
          </tr>
-         
+
          <tr>
            <td><%= f.label :"性別" %></td>
-           <td><%= f.text_field :sex, autofocus: true, autocomplete: "性別", class: "form-control" %></td>
+           <td><%= f.select :sex, User.sexes.keys.map {|k| [I18n.t("enums.user.sex.#{k}"), k]}, class: "form-control" %></td>
          </tr>
-         
+
          <tr>
            <td><%= f.label :"年齢層" %></td>
-           <td><%= f.text_field :age_group, autofocus: true, autocomplete: "年齢層", class: "form-control" %></td>
+           <td><%= f.select :age_group, User.age_groups.keys.map {|k| [I18n.t("enums.user.age_group.#{k}"), k]}, class: "form-control" %></td>
          </tr>
-         
+
          <tr>
            <td><%= f.label :"パスワード" %></td>
            <td><%= f.password_field :password, autocomplete: "new-password", class: "form-control" %></td>
          </tr>
-         
+
          <tr>
            <td><%= f.label :"パスワード（確認用）" %></td>
            <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %></td>
          </tr>
-         
+
          <tr>
            <td>
-             <%= f.submit "新規登録", class: "btn btn-success" %>
+             <%= f.submit "新規登録", class: "btn btn-outline-success" %>
            </td>
          </tr>
        </table>
