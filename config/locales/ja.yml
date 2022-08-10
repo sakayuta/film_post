@@ -1,0 +1,17 @@
+ja:   # 日本語の設定を行う
+    enums:  # enumの設定を行う
+      user:  # モデル名（Userモデルに対して）
+        sex: # カラム名（sexカラムに対して）
+          man: "男性"
+          woman: "女性"
+        age_group: # カラム名（age_groupカラムに対して）
+          under19: "19歳以下"
+          early20: "20〜25歳"
+          older20: "26〜30歳"
+          early30: "31〜35歳"
+          older30: "36〜40歳"
+          early40: "41〜45歳"
+          older40: "46〜50歳"
+          early50: "51〜55歳"
+          older50: "56〜60歳"
+          over61: "61歳以上"
