@@ -1,0 +1,22 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>タイトル</th>
+      <th>説明文</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% films.each do |film| %>
+      <tr>
+        <td><%= link_to(film.user) do %>
+          <%= image_tag film.user.get_profile_image(50,50) %>
+          <% end %>
+        </td>
+        <td><%= link_to film.title,film, class: "film_#{film.id}" %></td>
+        <td><%= film.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

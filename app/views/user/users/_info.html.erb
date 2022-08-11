@@ -1,0 +1,23 @@
+<table class='table'>
+  <tr><%= image_tag user.get_profile_image(100,100) %></tr>
+  <tr>
+	  <th>氏名</th>
+	  <th><%= user.name %></th>
+  </tr>
+  <tr>
+	  <th>性別</th>
+	  <th><%= user.sex_i18n %></th>
+  </tr>
+  <tr>
+    <th>年齢層</th>
+    <th><%= user.age_group_i18n %></th>
+  </tr>
+</table>
+
+<% if current_user == user %>
+  <div class='row'>
+    <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
+      <i class="fas fa-user-edit"></i>
+    <% end %>
+  </div>
+<% end %>

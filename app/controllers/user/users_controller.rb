@@ -3,7 +3,7 @@ class User::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @books = @user.films
+    @films = @user.films
   end
   
   def index
