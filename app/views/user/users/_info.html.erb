@@ -1,7 +1,7 @@
 <table class='table'>
   <tr><%= image_tag user.get_profile_image(100,100) %></tr>
   <tr>
-	  <th>氏名</th>
+	  <th>名前</th>
 	  <th><%= user.name %></th>
   </tr>
   <tr>
@@ -21,3 +21,7 @@
     <% end %>
   </div>
 <% end %>
+<div class='row mt-5'>
+  <p class="mx-auto">☆shere your recommendations☆</p>
+  <%= link_to "投稿する", new_film_path, class: "btn btn-outline-info btn-block mt-1" %>
+</div>

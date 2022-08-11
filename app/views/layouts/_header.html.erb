@@ -42,6 +42,11 @@
            <% end %>
           </li>
           <li class="nav-item">
+           <%= link_to users_path, class: 'nav-link text-light btn btn-outline-light ml-3' do %>
+            <i class="fas fa-users"></i>会員一覧
+           <% end %>
+          </li>
+          <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light btn btn-outline-light ml-3' do %>
              <i class="fas fa-sign-out-alt"></i>ログアウト
             <% end %>

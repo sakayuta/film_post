@@ -23,7 +23,7 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 
    get '/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
    get '/withdraw' => 'users#withdraw', as: 'withdraw'
-   resources :users, only: [:show, :edit, :update]
+   resources :users, only: [:index, :show, :edit, :update]
  end
 
  #管理者側のルーティング設定
