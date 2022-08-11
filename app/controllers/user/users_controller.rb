@@ -17,14 +17,25 @@ class User::UsersController < ApplicationController
   end
 
   def update
-  
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "編集が完了しました"
     else
       render :edit
     end
   end
+  
+  def unsubscribe
+    @user = current_user
+  end
 
+  def withdraw
+    @user = current_user
+    @user.update(is_valid: false)
+    reset_session
+    redirect_to root_path
+  end
+  
+  
   private
 
   def user_params

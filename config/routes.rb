@@ -22,7 +22,7 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
    end
 
    get '/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
-   get '/withdraw' => 'users#withdraw', as: 'withdraw'
+   patch '/withdraw' => 'users#withdraw', as: 'withdraw'
    resources :users, only: [:index, :show, :edit, :update]
  end
 

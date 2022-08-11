@@ -1,0 +1,24 @@
+<div class='container'>
+  <div class='row'>
+     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
+        <h4 class="text-center"><strong>本当に退会しますか？</strong></h4>
+     </div>
+  </div>
+
+   <div class='row'>
+     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
+       <p class="ml-2">
+         退会すると、このアカウントで再度ログインすることが<br>
+         できなくなります。<br>
+         退会する場合は、「退会する」をクリックしてください。
+       </p>
+     </div>
+  </div>
+
+  <div class='row'>
+     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-3">
+       <%= link_to "退会しない", user_path(current_user), class: "btn btn-outline-primary mx-5" %>
+       <%= link_to "退会する", withdraw_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger mx-5" %>
+     </div>
+  </div>
+</div>
