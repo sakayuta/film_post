@@ -15,8 +15,7 @@ class User::FilmsController < ApplicationController
   end
 
   def index
-    @film = Film.all
-    @user = current_user
+    @films = Film.all
   end
 
   def show

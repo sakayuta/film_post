@@ -2,15 +2,25 @@
   <tr><%= image_tag user.get_profile_image(100,100) %></tr>
   <tr>
 	  <th>名前</th>
-	  <th><%= user.name %></th>
+	  <td><%= user.name %></td>
   </tr>
   <tr>
 	  <th>性別</th>
-	  <th><%= user.sex_i18n %></th>
+	  <td><%= user.sex_i18n %></td>
   </tr>
   <tr>
     <th>年齢層</th>
-    <th><%= user.age_group_i18n %></th>
+    <td><%= user.age_group_i18n %></td>
+  </tr>
+  <tr>
+    <th>ステータス</th>
+    <td>
+      <%if user.is_valid? == true %>
+       <span class="text-success">有効</span>
+      <% else %>
+       <span class="text-danger">退会済み</span>
+      <% end %>
+    </td>
   </tr>
 </table>
 

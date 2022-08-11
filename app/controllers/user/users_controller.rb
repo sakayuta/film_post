@@ -8,7 +8,6 @@ class User::UsersController < ApplicationController
 
   def index
      @users = User.all
-     @user = current_user
   end
 
 
@@ -23,7 +22,7 @@ class User::UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def unsubscribe
     @user = current_user
   end
@@ -34,8 +33,8 @@ class User::UsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
-  
-  
+
+
   private
 
   def user_params

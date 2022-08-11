@@ -1,7 +1,8 @@
 <table class='table'>
   <thead>
     <tr>
-      <th>会員イメージ</th>
+      <th>ステータス</th>
+      <th>プロフィール画像</th>
       <th>名前</th>
       <th></th>
     </tr>
@@ -9,6 +10,13 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
+        <td>
+          <%if user.is_valid? == true %>
+           <span class="text-success">有効</span>
+          <% else %>
+           <span class="text-danger">退会済み</span>
+          <% end %>
+        </td>
         <td><%= image_tag user.get_profile_image(50,50) %></td>
         <td><%= user.name %></td>
         <td><%= link_to "会員詳細", user_path(user.id), class: "user_#{user.id}" %></td>
