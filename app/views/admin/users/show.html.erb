@@ -1,0 +1,98 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2 class="text-center mt-5"><%= @user.name %>さんの会員詳細</h2>
+       <table class ="table table-borderless mt-3">
+         <tr>
+           <th>会員ID</th>
+           <td><%= @user.id %></td>
+         </tr>
+
+         <tr>
+           <th>名前</th>
+           <td><%= @user.name %></td>
+         </tr>
+
+         <tr>
+           <th>フリガナ</th>
+           <td><%= @user.name_kana %></td>
+         </tr>
+
+         <tr>
+           <th>性別</th>
+           <td><%= @user.sex_i18n %></td>
+         </tr>
+
+         <tr>
+           <th>年齢層</th>
+           <td><%= @user.age_group_i18n %></td>
+         </tr>
+
+         <tr>
+           <th>メールアドレス</th>
+           <td><%= @user.email %></td>
+         </tr>
+
+         <tr>
+           <th>ステータス</th>
+           <td>
+             <% if @user.is_valid? == true %>
+                <span class="text-success">有効</span>
+              <% else %>
+                <span class="text-danger">退会済み</span>
+              <% end %>
+           </td>
+         </tr>
+
+         <tr>
+           <td>
+             <%= link_to "編集する", edit_admin_user_path(@user.id), class: "btn btn-outline-success mr-3" %>
+             <%= link_to "会員一覧に戻る", admin_users_path, class: "btn btn-outline-primary ml-3" %>
+           </td>
+         </tr>
+       </table>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+</div>
