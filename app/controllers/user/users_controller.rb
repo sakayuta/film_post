@@ -38,7 +38,7 @@ class User::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :name_kana, :sex, :age_group, :email ,:profile_image)
+    params.require(:user).permit(:name, :name_kana, :sex, :age_group, :email , :profile_image)
   end
 
   def ensure_correct_user

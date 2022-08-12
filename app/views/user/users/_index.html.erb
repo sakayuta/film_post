@@ -4,7 +4,6 @@
       <th>ステータス</th>
       <th>プロフィール画像</th>
       <th>名前</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +17,11 @@
           <% end %>
         </td>
         <td><%= image_tag user.get_profile_image(50,50) %></td>
-        <td><%= user.name %></td>
-        <td><%= link_to "会員詳細", user_path(user.id), class: "user_#{user.id}" %></td>
+        <td>
+          <%= link_to user_path(user.id) do %>
+            <%= user.name %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
