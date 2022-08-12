@@ -5,10 +5,10 @@ class User::FilmsController < ApplicationController
   end
 
   def create
-    film = Film.new(film_params)
-    film.user_id = current_user.id
-    if film.save
-      redirect_to film_path(film.id), notice: "投稿できました！"
+    @film = Film.new(film_params)
+    @film.user_id = current_user.id
+    if @film.save
+      redirect_to film_path(@film.id), notice: "投稿できました！"
     else
       render :new
     end
