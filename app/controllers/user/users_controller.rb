@@ -1,6 +1,7 @@
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-
+  
   def show
     @user = User.find(params[:id])
     @films = @user.films
@@ -16,6 +17,7 @@ class User::UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "編集が完了しました"
     else
@@ -38,7 +40,7 @@ class User::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :name_kana, :sex, :age_group, :email , :profile_image)
+    params.require(:user).permit(:name, :name_kana, :sex, :age_group, :email, :profile_image)
   end
 
   def ensure_correct_user
@@ -47,5 +49,5 @@ class User::UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-
+  
 end

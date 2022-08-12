@@ -31,8 +31,8 @@ class User::FilmsController < ApplicationController
   end
 
   def update
-    film = Film.find(params[:id])
-    if film.update(film_params)
+    @film = Film.find(params[:id])
+    if @film.update(film_params)
       redirect_to film_path(film.id), notice: "編集できました！"
     else
       render :edit

@@ -1,0 +1,56 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2 class="text-center"><%= @user.name %>さんの会員情報編集</h2>
+      <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+       <table class ="table table-borderless">
+
+         <tr>
+           <th>会員ID</th>
+           <td><%= @user.id %></td>
+         </tr>
+
+         <tr>
+           <th><%= f.label :"名前" %></th>
+           <td><%= f.text_field :name, class: "form-control" %></td>
+         </tr>
+
+         <tr>
+           <th><%= f.label :"フリガナ" %></th>
+           <td><%= f.text_field :name_kana, class: "form-control" %></td>
+         </tr>
+
+         <tr>
+           <th><%= f.label :"性別" %></th>
+           <td><%= f.select :sex, User.sexes.keys.map {|k| [I18n.t("enums.user.sex.#{k}"), k]}, {include_blank: "--選択してください--"}, class: "form-control" %></td>
+         </tr>
+
+         <tr>
+           <th><%= f.label :"年齢層" %></th>
+           <td><%= f.select :age_group, User.age_groups.keys.map {|k| [I18n.t("enums.user.age_group.#{k}"), k]}, {include_blank: "--選択してください--"}, class: "form-control" %></td>
+         </tr>
+
+         <tr>
+           <th><%= f.label :"メールアドレス" %></th>
+           <td><%= f.email_field :email, class: "form-control" %></td>
+         </tr>
+
+         <tr>
+           <th>会員ステータス</th>
+           <td>
+             <%= f.radio_button :is_valid, :true %>
+             <%= f.label :is_valid, "有効", class: "text-success" %>
+             <%= f.radio_button :is_valid, :false %>
+             <%= f.label :is_valid, "退会", class: "text-danger" %>
+           </td>
+         </tr>
+
+         <tr>
+           <td><%= f.submit "変更を保存", class: "btn btn-outline-success" %></td>
+         </tr>
+
+       </table>
+      <% end %>
+    </div>
+  </div>
+</div>

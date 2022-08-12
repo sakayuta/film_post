@@ -15,8 +15,9 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admin_user_path(@user.id), notice: "編集が完了しました"
+      redirect_to admin_user_path(@user.id), notice: "変更が完了しました"
     else
       render :edit
     end
@@ -25,7 +26,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :name_kana, :sex, :age_group, :email , :is_valid)
+    params.require(:user).permit(:name, :name_kana, :sex, :age_group, :email, :is_valid)
   end
 
 end
