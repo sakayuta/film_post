@@ -2,11 +2,11 @@
   <%#= render 'layouts/errors', obj: @film %>
   <div class='row'>
     <div class='col-md-3'>
-      <h2>あなたの情報</h2>
+      <h3>あなたの会員情報</h3>
       <%= render 'user/users/info', user: current_user %>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2>投稿一覧</h2>
+      <h3>投稿一覧</h3>
       <%= render 'index', films: @films %>
     </div>
   </div>
