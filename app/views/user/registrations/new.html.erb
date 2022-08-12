@@ -26,12 +26,12 @@
 
          <tr>
            <th><%= f.label :"性別" %></th>
-           <td><%= f.select :sex, User.sexes.keys.map {|k| [I18n.t("enums.user.sex.#{k}"), k]}, class: "form-control" %></td>
+           <td><%= f.select :sex, User.sexes.keys.map {|k| [I18n.t("enums.user.sex.#{k}"), k]}, {include_blank: "--選択してください--"}, class: "form-control" %></td>
          </tr>
 
          <tr>
            <th><%= f.label :"年齢層" %></th>
-           <td><%= f.select :age_group, User.age_groups.keys.map {|k| [I18n.t("enums.user.age_group.#{k}"), k]}, class: "form-control" %></td>
+           <td><%= f.select :age_group, User.age_groups.keys.map {|k| [I18n.t("enums.user.age_group.#{k}"), k]}, {include_blank: "--選択してください--"}, class: "form-control" %></td>
          </tr>
 
          <tr>
