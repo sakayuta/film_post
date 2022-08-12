@@ -1,19 +1,19 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-  
+
   def show
     @user = User.find(params[:id])
     @films = @user.films
   end
 
   def index
-     @users = User.all
+    @users = User.all
   end
 
 
   def edit
-     @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
@@ -49,5 +49,5 @@ class User::UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-  
+
 end
