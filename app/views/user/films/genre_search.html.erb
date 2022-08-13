@@ -1,0 +1,14 @@
+<div class='container px-5 px-sm-0'>
+  <%#= render 'layouts/errors', obj: @film %>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h3>あなたの会員情報</h3>
+      <%= render 'user/users/info', user: current_user %>
+      <%= render 'genres', genres: @genres %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h3><%= @genre_searched.name %> 一覧</h3><h6>(<%= "#{@all_films_searched.count}件" %>)</h6>
+      <%= render 'index', films: @films %>
+    </div>
+  </div>
+</div>
