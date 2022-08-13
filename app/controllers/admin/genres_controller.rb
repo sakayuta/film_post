@@ -14,7 +14,6 @@ class Admin::GenresController < ApplicationController
     else
       #@genre = Genre.all
       #@genres = Genre.new(genre_params)
-
       render :index
     end
   end
