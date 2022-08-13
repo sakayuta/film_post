@@ -4,9 +4,10 @@
     <div class='col-md-3'>
       <h3>あなたの会員情報</h3>
       <%= render 'user/users/info', user: current_user %>
+      <%= render 'genres', genres: @genres %>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h3>投稿一覧</h3>
+      <h3>投稿一覧</h3><h6>(<%= @films.count %>件)</h6>
       <%= render 'index', films: @films %>
     </div>
   </div>

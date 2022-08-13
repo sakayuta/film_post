@@ -24,6 +24,8 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
    get '/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
    patch '/withdraw' => 'users#withdraw', as: 'withdraw'
    resources :users, only: [:index, :show, :edit, :update]
+
+   get "/films/genre_search/:id" => "films#genre_search",as: 'films_genre_search'
  end
 
  #管理者側のルーティング設定

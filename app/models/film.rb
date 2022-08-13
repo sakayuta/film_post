@@ -1,11 +1,11 @@
 class Film < ApplicationRecord
   has_one_attached :image
-  
+
   belongs_to :user
-  belongs_to :junre
+  belongs_to :genre
   has_many :film_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+
   #投稿する際、画像がない場合に代わりにあらかじめ用意した画像を表示する記述
   def get_image
     unless image.attached?
@@ -14,9 +14,9 @@ class Film < ApplicationRecord
     end
     image
   end
-  
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-  
+
 end
