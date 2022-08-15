@@ -23,6 +23,7 @@ class User::FilmsController < ApplicationController
   def show
     @film = Film.find(params[:id])
     @user = @film.user
+    @film_comment = FilmComment.new
   end
 
   def edit
