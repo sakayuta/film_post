@@ -23,6 +23,13 @@
           </td>
           <td><%= @film.title %></td>
           <td><%= @film.body %></td>
+          <% if current_user != @user %>
+           <td id="favorite_buttons_<%= @film.id %>">
+            <%= render 'user/favorites/favorite', film: @film %>
+           </td>
+          <% else %>
+           <td><%= @film.favorites.count %>いいね</td>
+          <% end %>
           <td id="comments_count_<%= @film.id %>">
             <%= render 'user/film_comments/count', film: @film %>
           </td>
@@ -33,7 +40,7 @@
           <% end %>
         </tr>
       </table>
-      
+
       <div id="comments_area">
         <%= render 'user/film_comments/comment', film: @film, film_comment: @film_comment %>
       </div>

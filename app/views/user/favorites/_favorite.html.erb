@@ -1,0 +1,9 @@
+<% if film.favorited_by?(current_user) %>
+ <%= link_to film_favorites_path(film), method: :delete, remote: true  do %>
+   <i class="fas fa-thumbs-up", style="color: blue;"></i><%= film.favorites.count %>いいね
+ <% end %>
+<% else %>
+ <%= link_to film_favorites_path(film), method: :post, remote: true  do %>
+   <i class="fas fa-thumbs-up", style="color: red;"></i><%= film.favorites.count %>いいね
+ <% end %>
+<% end %>
