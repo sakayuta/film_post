@@ -12,6 +12,11 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
 
+#ゲストログイン用
+devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+end
+
  #user側のルーティング設定
  scope module: :user do
    root to: "homes#top"

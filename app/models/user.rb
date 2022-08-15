@@ -19,6 +19,13 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  #ゲストログイン用の記述
+  def self.guest
+    find_or_create_by!(name: 'guestuser', name_kana: 'guestuser', sex: 'man', age_group: 'early20', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
 
  enum sex: { man: 0, woman: 1 }
  enum age_group: { under19: 0, early20: 1, older20: 2, early30: 3, older30: 4, early40: 5, older40: 6, early50: 7, older50: 8, over61: 9  }
