@@ -16,6 +16,7 @@
         </td>
         <td><%= link_to film.title,film, class: "film_#{film.id}" %></td>
         <td><%= film.body %></td>
+        <td>コメント数: <%= film.film_comments.count %></td>
       </tr>
     <% end %>
   </tbody>

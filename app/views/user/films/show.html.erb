@@ -23,6 +23,9 @@
           </td>
           <td><%= @film.title %></td>
           <td><%= @film.body %></td>
+          <td id="comments_count_<%= @film.id %>">
+            <%= render 'user/film_comments/count', film: @film %>
+          </td>
           <td><%= @film.genre.name %></td>
           <% if @film.user == current_user %>
             <td><%= link_to '編集', edit_film_path(@film.id), class: "btn btn-sm btn-outline-success edit_film_#{@film.id}" %></td>
@@ -30,6 +33,18 @@
           <% end %>
         </tr>
       </table>
+      
+      <div id="comments_area">
+        <%= render 'user/film_comments/comment', film: @film, film_comment: @film_comment %>
+      </div>
+      <%= form_with model: [@film, @film_comment], local: false do |f| %>
+        <div class="form-group">
+          <%= f.text_area :comment, rows:'5', class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "コメントする" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
