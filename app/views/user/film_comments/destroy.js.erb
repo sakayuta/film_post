@@ -1,0 +1,2 @@
+$('#comments_area').html('<%= j(render 'film_comments/comment', film: @film, film_comment: @film_comment) %>')
+$('#comments_count_<%= @film.id %>').html('<%= j(render 'film_comments/count', film: @film) %>')
