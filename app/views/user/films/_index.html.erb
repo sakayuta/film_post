@@ -16,12 +16,12 @@
         </td>
         <td><%= link_to film.title,film, class: "film_#{film.id}" %></td>
         <td><%= film.body %></td>
-        <% if current_user != film.user %>
-         <td id="favorite_buttons_<%= film.id %>">
-          <%= render 'user/favorites/favorite', film: film %>
-         </td>
+        <% if admin_signed_in? || current_user == film.user %>
+          <td><%= film.favorites.count %>いいね</td>
         <% else %>
-         <td><%= film.favorites.count %>いいね</td>
+          <td id="favorite_buttons_<%= film.id %>">
+            <%= render 'user/favorites/favorite', film: film %>
+          </td>
         <% end %>
         <td>コメント数: <%= film.film_comments.count %></td>
       </tr>

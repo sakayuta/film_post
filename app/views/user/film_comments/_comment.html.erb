@@ -2,7 +2,9 @@
  <%= image_tag film_comment.user.get_profile_image(80,80) %>
  <%= film_comment.comment %>
  <% if film_comment.user == current_user %>
- <%= link_to '削除', film_film_comment_path(film_comment.film, film_comment), method: :delete, remote: true %>
+  <%= link_to '削除', film_film_comment_path(film_comment.film, film_comment), method: :delete, remote: true, class: "btn btn-sm btn-outline-danger" %>
+ <% elsif admin_signed_in? %>
+  <%= link_to '管理者用削除', film_film_comment_path(film_comment.film, film_comment), method: :delete, remote: true, class: "btn btn-sm btn-outline-danger" %>
  <% end %>
  <div>
    <%= film_comment.user.name %>
