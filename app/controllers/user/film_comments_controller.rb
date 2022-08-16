@@ -1,5 +1,5 @@
 class User::FilmCommentsController < ApplicationController
-  
+
   def create
     @film = Film.find(params[:film_id])
     @film_comment = FilmComment.new(film_comment_params)
@@ -11,8 +11,8 @@ class User::FilmCommentsController < ApplicationController
 
   def destroy
     @film = Film.find(params[:film_id])
-    @film_comment=FilmComment.find_by(id: params[:id], film_id: params[:film_id])
-    @film_comment.destroy
+    film_comment=FilmComment.find_by(id: params[:id], film_id: params[:film_id])
+    film_comment.destroy
     #redirect_to request.referer
   end
 
@@ -23,6 +23,6 @@ class User::FilmCommentsController < ApplicationController
   def film_comment_params
     params.require(:film_comment).permit(:comment)
   end
-  
-  
+
+
 end
