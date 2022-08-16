@@ -2,10 +2,8 @@
   <%#= render 'layouts/errors', obj: @film %>
   <div class='row'>
     <div class='col-md-3'>
-      <% if current_user %>
-        <h3>あなたの会員情報</h3>
-        <%= render 'user/users/info', user: current_user %>
-      <% end %>
+      <h3>あなたの会員情報</h3>
+      <%= render 'user/users/info', user: current_user %>
       <%= render 'genres', genres: @genres %>
     </div>
     <div class='col-md-8 offset-md-1'>

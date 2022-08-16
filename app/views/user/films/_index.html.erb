@@ -10,8 +10,9 @@
   <tbody>
     <% films.each do |film| %>
       <tr>
-        <td><%= link_to(film.user) do %>
-          <%= image_tag film.user.get_profile_image(50,50) %>
+        <td>
+          <%= link_to(film.user) do %>
+            <%= image_tag film.user.get_profile_image(50,50) %>
           <% end %>
         </td>
         <td><%= link_to film.title,film, class: "film_#{film.id}" %></td>

@@ -39,6 +39,9 @@ end
    root to: "homes#top"
    resources :genres, only: [:index, :create, :edit, :update, :destroy]
    resources :users, only: [:index, :show, :edit, :update]
+   resources :films, only: [:index, :show, :destroy] do
+     resources :film_comments, only: [:destroy]
+   end
  end
 
 
