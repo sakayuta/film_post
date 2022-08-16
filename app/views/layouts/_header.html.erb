@@ -85,13 +85,16 @@
       </div>
     </div>
   </nav>
-
-  <% if user_signed_in? %>
-   <div class="search-form">
-    <%= form_with url: search_path, method: :get do |f| %>
-     <%= f.text_field :keyword, value: @keyword, placeholder:"作品のキーワードを入力してください" %>
-     <%= f.submit "検索" %>
+  <div class="row mb-2" style="place-content: end;">
+   <div class="col-5">
+    <% if user_signed_in? %>
+     <div class="search-form">
+      <%= form_with url: search_path, method: :get do |f| %>
+       <%= f.text_field :keyword, value: @keyword, placeholder:"作品のキーワードを入力してください",style:"width:63%" %>
+       <%= f.submit "検索" %>
+      <% end %>
+     </div>
     <% end %>
    </div>
-  <% end %>
+  </div>
 </header>
