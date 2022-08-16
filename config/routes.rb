@@ -21,6 +21,7 @@ end
  scope module: :user do
    root to: "homes#top"
    get '/about' => 'homes#about', as: 'about'
+   get "search" => "searches#search"
    resources :films do
      resource :favorites, only: [:create, :destroy]
      resources :film_comments, only: [:create, :destroy]

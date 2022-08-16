@@ -18,5 +18,10 @@ class Film < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
+  #検索でtitle と body、どちらか一方にでも検索キーワードが部分一致すれば、その作品を出力する
+  def self.search(keyword)
+    where(["title like? OR body like?", "%#{keyword}%", "%#{keyword}%"])
+  end
 
 end
