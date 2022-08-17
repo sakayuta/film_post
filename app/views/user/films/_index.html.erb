@@ -4,7 +4,7 @@
       <th></th>
       <th>タイトル</th>
       <th>おすすめポイント</th>
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +25,21 @@
           </td>
         <% end %>
         <td>コメント数: <%= film.film_comments.count %></td>
+        <td>
+          <div id="star-rate<%= film.id %>"></div>
+            <script>
+              $('#star-rate<%= film.id %>').empty();
+              $('#star-rate<%= film.id %>').raty({
+                size       :36,
+                starOff    : '<%= asset_path('star-off.png') %>',
+                starOn     : '<%= asset_path('star-on.png') %>',
+                starHalf   : '<%= asset_path('star-half.png') %>',
+                half       : true,
+                readOnly   : true,
+                score: <%= film.star %>,
+              });
+            </script>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -59,7 +59,7 @@ class User::FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:title, :body, :genre_id, :image)
+    params.require(:film).permit(:title, :body, :genre_id, :image, :star)
   end
 
 end
