@@ -21,6 +21,21 @@
           <td id="comments_count_<%= @film.id %>">
             <%= render 'user/film_comments/count', film: @film %>
           </td>
+          <td>
+            <div id="star-rate<%= @film.id %>"></div>
+            <script>
+              $('#star-rate<%= @film.id %>').empty();
+              $('#star-rate<%= @film.id %>').raty({
+                size       :36,
+                starOff    : '<%= asset_path('star-off.png') %>',
+                starOn     : '<%= asset_path('star-on.png') %>',
+                starHalf   : '<%= asset_path('star-half.png') %>',
+                half       : true,
+                readOnly   : true,
+                score: <%= @film.star %>,
+              });
+            </script>
+          </td>
           <td><%= @film.genre.name %></td>
           <% if admin_signed_in? %>
             <td><%= link_to '管理者用削除', admin_film_path(@film.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger admin_destroy_film_#{@film.id}"%></td>

@@ -8,6 +8,7 @@
       	      <th>投稿者</th>
       	      <th>タイトル</th>
       	      <th>おすすめポイント</th>
+      	      <th></th>
       	    </tr>
           </thead>
           <tbody>
@@ -16,6 +17,21 @@
                <td><%= film.user.name %></td>
                <td><%= link_to film.title,film_path(film.id), class: "film_#{film.id}" %></td>
                <td><%= film.body %></td>
+               <td>
+                 <div id="star-rate<%= film.id %>"></div>
+                  <script>
+                   $('#star-rate<%= film.id %>').empty();
+                   $('#star-rate<%= film.id %>').raty({
+                     size       :36,
+                     starOff    : '<%= asset_path('star-off.png') %>',
+                     starOn     : '<%= asset_path('star-on.png') %>',
+                     starHalf   : '<%= asset_path('star-half.png') %>',
+                     half       : true,
+                     readOnly   : true,
+                     score: <%= film.star %>,
+                   });
+                  </script>
+               </td>
              </tr>
             <% end %>
           </tbody>
