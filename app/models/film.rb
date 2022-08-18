@@ -5,6 +5,7 @@ class Film < ApplicationRecord
   belongs_to :genre
   has_many :film_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
 
   #投稿する際、画像がない場合に代わりにあらかじめ用意した画像を表示する記述
   def get_image
@@ -15,9 +16,12 @@ class Film < ApplicationRecord
     image
   end
 
+  #投稿一覧(新しい順・古い順・いいね順・評価順）で表示する記述
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
+  scope :favorited_count, -> { includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}}
   scope :star_count, -> {order(star: :desc)}
+  
 
 
   def favorited_by?(user)

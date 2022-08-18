@@ -20,6 +20,9 @@ class User::FilmsController < ApplicationController
       @films = Film.latest.page(params[:page])
     elsif params[:old]
       @films = Film.old.page(params[:page])
+    elsif params[:favorited_count]
+      films = Film.favorited_count
+      @films = Kaminari.paginate_array(films).page(params[:page])
     elsif params[:star_count]
       @films = Film.star_count.page(params[:page])
     else

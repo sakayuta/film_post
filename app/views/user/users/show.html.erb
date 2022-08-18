@@ -16,6 +16,7 @@
       <p>
         <%= link_to '新しい順', films_path(latest: "true") %>
         |<%= link_to '古い順', films_path(old: "true") %>
+        |<%= link_to 'いいね順', films_path(favorited_count: "true") %>
         |<%= link_to '評価の高い順', films_path(star_count: "true") %>
       </p>
       <%= render 'user/films/index',films: @films %>
