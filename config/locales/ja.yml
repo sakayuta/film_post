@@ -15,7 +15,7 @@ ja:   # 日本語の設定を行う
         early50: "51〜55歳"
         older50: "56〜60歳"
         over61: "61歳以上"
-        
+
   activerecord:
     errors:
       messages:
@@ -33,7 +33,7 @@ ja:   # 日本語の設定を行う
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -59,7 +59,7 @@ ja:   # 日本語の設定を行う
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -221,3 +221,10 @@ ja:   # 日本語の設定を行う
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

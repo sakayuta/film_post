@@ -58,6 +58,7 @@ gem 'devise'
 
 gem "enum_help"
 gem 'kaminari','~> 1.2.1'
+gem 'bootstrap4-kaminari-views'
 
 gem 'dotenv-rails'
 group :production do
