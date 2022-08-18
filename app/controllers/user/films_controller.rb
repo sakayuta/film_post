@@ -16,7 +16,7 @@ class User::FilmsController < ApplicationController
   end
 
   def index
-    @films = Film.all
+    @films = Film.page(params[:page])
     @genres = Genre.all
   end
 
@@ -53,7 +53,7 @@ class User::FilmsController < ApplicationController
     @genres = Genre.all
     @genre_searched = Genre.find(params[:id])
     @all_films_searched = Film.where(genre_id: @genre_searched.id)
-    @films = @all_films_searched.all.reverse_order
+    @films = @all_films_searched.page(params[:page]).reverse_order
   end
 
   private

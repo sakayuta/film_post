@@ -12,7 +12,6 @@
              </tr>
           </thead>
           <tbody>
-           <% sum = 0 %>
              <% @users.each do |user| %>
               <tr>
                 <td><%= user.id %></td>
@@ -30,11 +29,10 @@
                   <% end %>
                 </td>
               </tr>
-             <% sum += 1 %>
              <% end %>
           </tbody>
         </table>
-        <p>登録者合計：<%= sum %></p>
+        <%= paginate @users %>
       </div>
    </div>
 </div>

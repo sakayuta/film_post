@@ -5,11 +5,11 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @films = @user.films
+    @films = @user.films.page(params[:page])
   end
 
   def index
-    @users = User.all
+    @users = User.page(params[:page])
   end
 
 

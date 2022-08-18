@@ -3,7 +3,7 @@ class Admin::FilmsController < ApplicationController
   #before_action :film_find, only: [:show, :destroy]
 
   def index
-    @films = Film.all
+    @films = Film.page(params[:page])
   end
 
   def show
