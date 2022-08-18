@@ -16,7 +16,15 @@ class User::FilmsController < ApplicationController
   end
 
   def index
-    @films = Film.page(params[:page])
+    if params[:latest]
+      @films = Film.latest.page(params[:page])
+    elsif params[:old]
+      @films = Film.old.page(params[:page])
+    elsif params[:star_count]
+      @films = Film.star_count.page(params[:page])
+    else
+      @films = Film.page(params[:page])
+    end
     @genres = Genre.all
   end
 

@@ -15,10 +15,15 @@ class Film < ApplicationRecord
     image
   end
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  scope :star_count, -> {order(star: :desc)}
+
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-  
+
   #検索でtitle と body、どちらか一方にでも検索キーワードが部分一致すれば、その作品を出力する
   def self.search(keyword)
     where(["title like? OR body like?", "%#{keyword}%", "%#{keyword}%"])
