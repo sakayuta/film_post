@@ -30,6 +30,7 @@ class User::FilmsController < ApplicationController
       @films = Film.page(params[:page])
     end
     @genres = Genre.all
+    @film_count = Film.all
   end
 
   def show

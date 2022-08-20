@@ -19,6 +19,7 @@
          <%= @user.name %>さんの投稿一覧
         <% end %>
       </h3>
+      <h6>(<%= @user.films.count %>件)</h6>
       <p>
         <%= link_to '新しい順', user_path(@user.id, latest: "true") %>
         |<%= link_to '古い順', user_path(@user.id, old: "true") %>
