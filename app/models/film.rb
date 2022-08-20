@@ -7,6 +7,12 @@ class Film < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
 
+  with_options presence: true do
+    validates :title
+    validates :body, length: { maximum: 300 }
+    validates :star
+  end
+
   #投稿する際、画像がない場合に代わりにあらかじめ用意した画像を表示する記述
   def get_image
     unless image.attached?
@@ -21,7 +27,7 @@ class Film < ApplicationRecord
   scope :old, -> {order(created_at: :asc)}
   scope :favorited_count, -> { includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}}
   scope :star_count, -> {order(star: :desc)}
-  
+
 
 
   def favorited_by?(user)

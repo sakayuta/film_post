@@ -13,6 +13,7 @@ class Admin::GenresController < ApplicationController
     else
       #@genre = Genre.all
       #@genres = Genre.new(genre_params)
+      @genres = Genre.page(params[:page])
       render :index
     end
   end

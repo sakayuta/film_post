@@ -17,6 +17,19 @@ ja:   # 日本語の設定を行う
         over61: "61歳以上"
 
   activerecord:
+    attributes:
+      user:
+        name: 名前
+        name_kana: フリガナ
+        sex: 性別
+        age_group: 年齢層
+      film:
+        title: タイトル
+        body: おすすめポイント
+        star: おすすめ度
+        genre: ジャンル
+      genre:
+        name: ジャンル名
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

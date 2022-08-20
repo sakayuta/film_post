@@ -11,6 +11,7 @@ class User::FilmsController < ApplicationController
     if @film.save
       redirect_to film_path(@film.id), notice: "投稿できました！"
     else
+      @genres = Genre.all
       render :new
     end
   end
@@ -50,6 +51,7 @@ class User::FilmsController < ApplicationController
     if @film.update(film_params)
       redirect_to film_path(@film.id), notice: "編集できました！"
     else
+      @genres = Genre.all
       render :edit
     end
   end

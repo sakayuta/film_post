@@ -8,6 +8,15 @@ class User < ApplicationRecord
   has_many :film_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  with_options presence: true do
+    validates :name
+    validates :name_kana
+    validates :sex
+    validates :age_group
+  end
+
+  validates :is_valid, inclusion: { in: [true, false] }
+
   has_one_attached :profile_image
 
   #user登録する際、画像がない場合に代わりにあらかじめ用意した画像を表示する記述
