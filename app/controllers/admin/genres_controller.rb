@@ -11,8 +11,6 @@ class Admin::GenresController < ApplicationController
     if @genre.save
        redirect_to request.referer
     else
-      #@genre = Genre.all
-      #@genres = Genre.new(genre_params)
       @genres = Genre.page(params[:page])
       render :index
     end
