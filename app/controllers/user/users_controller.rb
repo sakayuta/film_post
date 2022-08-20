@@ -6,6 +6,21 @@ class User::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @films = @user.films.page(params[:page])
+    films_list(params)
+  end
+
+  #show画面個人別投稿一覧(新しい順・古い順・いいね順・評価順）で表示する
+  def films_list(params)
+    if params[:latest]
+      @films = @user.films.latest.page(params[:page])
+    elsif params[:old]
+      @films = @user.films.old.page(params[:page])
+    elsif params[:favorited_count]
+      films = @user.films.favorited_count
+      @films = Kaminari.paginate_array(films).page(params[:page])
+    elsif params[:star_count]
+      @films = @user.films.star_count.page(params[:page])
+    end
   end
 
   def index

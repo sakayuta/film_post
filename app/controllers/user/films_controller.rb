@@ -64,9 +64,24 @@ class User::FilmsController < ApplicationController
 
   def genre_search
     @genres = Genre.all
-    @genre_searched = Genre.find(params[:id])
-    @all_films_searched = Film.where(genre_id: @genre_searched.id)
-    @films = @all_films_searched.page(params[:page]).reverse_order
+    @genre = Genre.find(params[:id])
+    #@all_films_searched = Film.where(genre_id: @genre_searched.id)
+    #@films = @all_films_searched.page(params[:page]).reverse_order
+    @films = @genre.films.page(params[:page])
+    genres_list(params)
+  end
+
+  def genres_list(params)
+    if params[:latest]
+      @films = @genre.films.latest.page(params[:page])
+    elsif params[:old]
+      @films = @genre.films.old.page(params[:page])
+    elsif params[:favorited_count]
+      films = @genre.films.favorited_count
+      @films = Kaminari.paginate_array(films).page(params[:page])
+    elsif params[:star_count]
+      @films = @genre.films.star_count.page(params[:page])
+    end
   end
 
   private
