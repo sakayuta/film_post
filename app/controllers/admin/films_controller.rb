@@ -20,7 +20,7 @@ class Admin::FilmsController < ApplicationController
 
   def show
     @film = Film.find(params[:id])
-    @user = @film.user
+    #@user = @film.user
   end
 
   def destroy

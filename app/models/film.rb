@@ -14,12 +14,12 @@ class Film < ApplicationRecord
   end
 
   #投稿する際、画像がない場合に代わりにあらかじめ用意した画像を表示する記述
-  def get_image
+  def get_image(width, height)
     unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      file_path = Rails.root.join('app/assets/images/film.jpg')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    image
+    image.variant(resize_to_limit: [width, height]).processed
   end
 
   #投稿一覧(新しい順・古い順・いいね順・評価順）で表示する記述
