@@ -3,24 +3,40 @@
     <div class='col-md-3'>
       <h3>
         管理者用<br>
-        投稿作品詳細<br>
-        管理画面
+        投稿作品詳細画面
       </h3>
     </div>
     <div class='col-md-8 offset-md-1'>
   		<h3>投稿作品詳細</h3>
   		<table class='table'>
   		  <tr>
-          <td>
-             <%= image_tag @film.get_image(80,80) %><br>
-             <%= @film.user.name %>
-          </td>
+  		    <th>投稿者名</th>
+          <td><%= @film.user.name %></td>
+        </tr>
+        <tr>
+          <th>作品画像</th>
+          <td><%= image_tag @film.get_image(80,80) %></td>
+        </tr>
+        <tr>
+          <th>作品名</th>
           <td><%= @film.title %></td>
+        </tr>
+        <tr>
+          <th>おすすめポイント</th>
           <td><%= @film.body %></td>
+        </tr>
+        <tr>
+          <th>いいね数</th>
           <td><%= @film.favorites.count %>いいね</td>
+        </tr>
+        <tr>
+          <th>コメント数</th>
           <td id="comments_count_<%= @film.id %>">
             <%= render 'user/film_comments/count', film: @film %>
           </td>
+        </tr>
+        <tr>
+          <th>評価</th>
           <td>
             <div id="star-rate<%= @film.id %>"></div>
             <script>
@@ -36,7 +52,12 @@
               });
             </script>
           </td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
           <td><%= @film.genre.name %></td>
+        </tr>
+        <tr>
           <% if admin_signed_in? %>
             <td><%= link_to '管理者用削除', admin_film_path(@film.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger admin_destroy_film_#{@film.id}"%></td>
           <% end %>

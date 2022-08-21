@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-9 px-5 px-sm-0 mx-auto">
       <h1 class="text-center">管理者用投稿一覧</h1><h6>(<%= @film_count.count %>件)</h6>
       <p>
         <%= link_to '新しい順', admin_films_path(latest: "true") %>
@@ -8,7 +8,7 @@
         |<%= link_to 'いいね順', admin_films_path(favorited_count: "true") %>
       </p>
       <table class='table table-hover table-inverse'>
-        <thead>
+        <thead class="thead-light">
           <tr>
             <th>投稿者</th>
             <th>タイトル</th>

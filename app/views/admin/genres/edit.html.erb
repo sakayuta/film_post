@@ -4,12 +4,14 @@
       <h3 class="text-center mt-3">ジャンル編集</h3>
        <%= render 'layouts/errors', obj: @genre %>
        <%= form_with model: @genre, url: admin_genre_path do |f| %>
-        <div class="form-group mt-3">
-          <%= f.label :name, "ジャンル名", class: 'font-weight-bold' %>
-          <%= f.text_field :name %>
-          <%= f.submit "変更を保存", class: 'btn btn-outline-success btn-sm rounded-pill ml-3' %>
+        <div class="form-group">
+          <%= f.label :name, "ジャンル名", class: 'ml-5' %>
+          <div class="form-inline">
+            <%= f.text_field :name, class: "form-control w-50 ml-5" %>
+            <%= f.submit "変更を保存", class: 'btn btn-outline-success btn-sm rounded-pill ml-3' %>
+          </div>
         </div>
-      <% end %>
+       <% end %>
     </div>
   </div>
 </div>
