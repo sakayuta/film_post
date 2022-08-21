@@ -15,14 +15,27 @@
   		<h3>投稿作品詳細</h3>
   		<table class='table'>
   		  <tr>
+  		    <th>
+  		      投稿者名<br>
+  		      作品画像
+  		    </th>
           <td>
             <%= image_tag @film.get_image(80,80) %><br>
             <%= link_to(@film.user) do %>
              <%= @film.user.name %>
             <% end %>
           </td>
+        </tr>
+        <tr>
+          <th>作品名</th>
           <td><%= @film.title %></td>
+        </tr>
+        <tr>
+          <th>おすすめポイント</th>
           <td><%= @film.body %></td>
+        </tr>
+        <tr>
+          <th>いいね数</th>
           <% if @user == current_user %>
            <td><%= @film.favorites.count %>いいね</td>
           <% else %>
@@ -30,9 +43,15 @@
             <%= render 'user/favorites/favorite', film: @film %>
            </td>
           <% end %>
+        </tr>
+        <tr>
+          <th>コメント数</th>
           <td id="comments_count_<%= @film.id %>">
             <%= render 'user/film_comments/count', film: @film %>
           </td>
+        </tr>
+        <tr>
+          <th>評価</th>
           <td>
             <div id="star-rate<%= @film.id %>"></div>
             <script>
@@ -48,10 +67,17 @@
               });
             </script>
           </td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
           <td><%= @film.genre.name %></td>
+        </tr>
+        <tr>
           <% if @user == current_user %>
-            <td><%= link_to '編集', edit_film_path(@film.id), class: "btn btn-sm btn-outline-success edit_film_#{@film.id}" %></td>
-            <td><%= link_to '削除', @film, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger destroy_film_#{@film.id}"%></td>
+            <td>
+              <%= link_to '編集', edit_film_path(@film.id), class: "btn btn-sm btn-outline-success edit_film_#{@film.id}" %>
+              <%= link_to '削除', @film, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger destroy_film_#{@film.id}"%>
+            </td>
           <% end %>
         </tr>
       </table>

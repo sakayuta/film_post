@@ -26,7 +26,7 @@ ja:   # 日本語の設定を行う
       film:
         title: タイトル
         body: おすすめポイント
-        star: おすすめ度
+        star: 評価
         genre: ジャンル
       genre:
         name: ジャンル名

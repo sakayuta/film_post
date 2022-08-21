@@ -43,8 +43,8 @@
           <%= f.submit "編集を保存する", class: 'btn btn-outline-success' %>
         </div>
       <% end %>
-  		<%= link_to '投稿詳細', film_path(@film.id), class: "film_#{@film.id}" %> |
-  		<%= link_to '戻る', films_path, class: "back" %>
+  		<%= link_to '投稿詳細へ', film_path(@film.id), class: "film_#{@film.id}" %> |
+  		<%= link_to '投稿一覧へ', films_path, class: "back" %>
   	</div>
   </div>
 </div>

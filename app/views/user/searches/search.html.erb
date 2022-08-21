@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-7 px-5 px-sm-0 mx-auto">
       	<h1 class="text-center"><%= @keyword %>の検索結果一覧</h1>
       	<h6>(<%= @films_count.count %>件)</h6>
       	<p>
@@ -9,7 +9,7 @@
           |<%= link_to '評価の高い順', search_path(star_count: "true", keyword: @keyword) %>
         </p>
       	<table class='table table-hover table-inverse'>
-      	  <thead>
+      	  <thead class="thead-light">
       	    <tr>
       	      <th>投稿者</th>
       	      <th>タイトル</th>

@@ -5,7 +5,7 @@
       <%= render 'user/users/info', user: current_user %>
       <%= render 'genres', genres: @genres %>
     </div>
-    <div class='col-md-8 offset-md-1'>
+    <div class='col-md-9'>
       <h3>投稿一覧</h3><h6>(<%= @film_count.count %>件)</h6>
       <p>
         <%= link_to '新しい順', films_path(latest: "true") %>

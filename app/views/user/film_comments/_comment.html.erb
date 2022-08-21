@@ -1,5 +1,5 @@
 <% film.film_comments.each do |film_comment| %>
- <%= image_tag film_comment.user.get_profile_image(80,80) %>
+ <%= image_tag film_comment.user.get_profile_image(60,60) %>
  <%= film_comment.comment %>
  <% if film_comment.user == current_user %>
   <%= link_to '削除', film_film_comment_path(film_comment.film, film_comment), method: :delete, remote: true, class: "btn btn-sm btn-outline-danger" %>
