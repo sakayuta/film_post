@@ -1,4 +1,6 @@
 class User::FilmsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :film_find, only: [:show, :edit, :update, :destroy]
 
   def new
     @film = Film.new
@@ -34,13 +36,11 @@ class User::FilmsController < ApplicationController
   end
 
   def show
-    @film = Film.find(params[:id])
     @user = @film.user
     @film_comment = FilmComment.new
   end
 
   def edit
-    @film = Film.find(params[:id])
     @genres = Genre.all
     if @film.user != current_user
        redirect_to films_path
@@ -48,7 +48,6 @@ class User::FilmsController < ApplicationController
   end
 
   def update
-    @film = Film.find(params[:id])
     if @film.update(film_params)
       redirect_to film_path(@film.id), notice: "編集できました！"
     else
@@ -58,16 +57,13 @@ class User::FilmsController < ApplicationController
   end
 
   def destroy
-    film = Film.find(params[:id])
-    film.destroy
+    @film.destroy
     redirect_to films_path
   end
 
   def genre_search
     @genres = Genre.all
     @genre = Genre.find(params[:id])
-    #@all_films_searched = Film.where(genre_id: @genre_searched.id)
-    #@films = @all_films_searched.page(params[:page]).reverse_order
     @films = @genre.films.page(params[:page])
     genres_list(params)
   end
@@ -89,6 +85,10 @@ class User::FilmsController < ApplicationController
 
   def film_params
     params.require(:film).permit(:title, :body, :genre_id, :image, :star)
+  end
+
+  def film_find
+    @film = Film.find(params[:id])
   end
 
 end
