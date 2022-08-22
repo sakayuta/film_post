@@ -2,19 +2,26 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 body {
-  padding-top: 112px;
+  padding-top: 118px;
   padding-bottom: 55px;
-  background: radial-gradient(#f2f2f2, #ffffff) fixed;
+  background: radial-gradient(circle at center, rgba(255, 239, 186, 0.65) 0%,rgba(255, 255, 255, 0.65) 90%) fixed;
 }
 
 header {
-  background: linear-gradient(-135deg, #1e130c, #9a8478) fixed;
+  background: linear-gradient(-135deg, #649173, #DBD5A4) fixed;
 }
 
 footer {
-  background: linear-gradient(-135deg, #1e130c, #9a8478) fixed;
+  background: linear-gradient(-135deg, #649173, #DBD5A4) fixed;
 }
 
 .logo {
   font-family: cursive;
+}
+
+.about_container {
+}
+
+.top_p .about_p {
+  line-height: 1.6;
 }
