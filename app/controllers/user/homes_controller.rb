@@ -3,6 +3,5 @@ class User::HomesController < ApplicationController
   end
 
   def about
-   # @css = "about_container"
   end
 end
