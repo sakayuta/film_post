@@ -59,7 +59,7 @@
         </tr>
         <tr>
           <% if admin_signed_in? %>
-            <td><%= link_to '管理者用削除', admin_film_path(@film.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger admin_destroy_film_#{@film.id}"%></td>
+            <td><%= link_to '管理者用削除', admin_film_path(@film.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-outline-danger admin_destroy_film_#{@film.id}"%></td>
           <% end %>
         </tr>
       </table>
