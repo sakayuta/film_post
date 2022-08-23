@@ -11,17 +11,17 @@
        <table class ="table table-borderless">
          <tr>
            <th><%= f.label :"名前" %></th>
-           <td><%= f.text_field :name, autofocus: true, autocomplete: "名前", class: "form-control" %></td>
+           <td><%= f.text_field :name, autofocus: true, autocomplete: "名前", placeholder: "山田太郎", class: "form-control" %></td>
          </tr>
 
          <tr>
            <th><%= f.label :"フリガナ" %></th>
-           <td><%= f.text_field :name_kana, autocomplete: "フリガナ", class: "form-control" %></td>
+           <td><%= f.text_field :name_kana, autocomplete: "フリガナ", placeholder: "ヤマダタロウ", class: "form-control" %></td>
          </tr>
 
          <tr>
            <th><%= f.label :"メールアドレス" %></th>
-           <td><%= f.email_field :email, autocomplete: "email", class: "form-control" %></td>
+           <td><%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %></td>
          </tr>
 
          <tr>
@@ -35,7 +35,7 @@
          </tr>
 
          <tr>
-           <th><%= f.label :"パスワード" %></th>
+           <th><%= f.label :"パスワード（6文字以上）" %></th>
            <td><%= f.password_field :password, autocomplete: "new-password", class: "form-control" %></td>
          </tr>
 

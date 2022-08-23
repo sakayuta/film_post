@@ -14,12 +14,12 @@
       <%= render 'layouts/errors', obj: @film %>
       <%= form_with model: @film do |f| %>
        <div class="form-group">
-         <%= f.label :"タイトル" %>
+         <%= f.label :"タイトル（30文字以内）" %>
          <%= f.text_field :title, class: 'form-control film_title' %>
        </div>
 
        <div class="form-group">
-         <%= f.label :"おすすめポイント" %>
+         <%= f.label :"おすすめポイント（300文字以内）" %>
          <%= f.text_area :body, class: 'form-control film_body', rows: "5" %>
        </div>
 

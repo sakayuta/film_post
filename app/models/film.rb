@@ -8,7 +8,7 @@ class Film < ApplicationRecord
   has_many :favorited_users, through: :favorites, source: :user
 
   with_options presence: true do
-    validates :title
+    validates :title, length: { maximum: 30 }
     validates :body, length: { maximum: 300 }
     validates :star
   end

@@ -87,7 +87,7 @@
       </div>
       <%= form_with model: [@film, @film_comment], local: false do |f| %>
         <div class="form-group">
-          <%= f.text_area :comment, rows:'5', class: "form-control" %>
+          <%= f.text_area :comment, rows:'5', placeholder: "150文字以内で入力してください。", class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.submit "コメントする" %>
