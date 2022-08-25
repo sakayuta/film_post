@@ -34,7 +34,7 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
       user.name_kana = "guestuser"
-      use.sex = "man"
+      user.sex = "man"
       user.age_group = "early20"
     end
   end
