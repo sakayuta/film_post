@@ -8,7 +8,7 @@
 Admin.create!(email: 'admin@admin',password: 'admin1')
 
 
-users = User.create!(
+User.create!(
   [
     {email: '1@example.com', password: 'password', name: '山田太郎', name_kana: 'ヤマダタロウ', sex: User.sexes[:man], age_group: User.age_groups[:early20]},
     {email: '2@example.com', password: 'password', name: '山田二郎', name_kana: 'ヤマダジロウ', sex: User.sexes[:man], age_group: User.age_groups[:early20]},
@@ -24,10 +24,10 @@ users = User.create!(
   ]
 )
 
-users.each do |user|
-  user.profile_image.attach(io: File.open(Rails.root.join('app/assets/images/sample-author1.jpg')),
-                  filename: 'sample-author1.jpg')
-end
+#users.each do |user|
+  #user.profile_image.attach(io: File.open(Rails.root.join('app/assets/images/sample-author1.jpg')),
+                  #filename: 'sample-author1.jpg')
+#end
 
 Genre.create!(
   [
